@@ -73,7 +73,7 @@ int main() {
             printf("One root: x = %lg\n", x1);
             break;
         case 2:
-            printf("Two roots: x1 = %lg, x2 = %lg", x1, x2);
+            printf("Two roots: x1 = %lg, x2 = %lg\n", x1, x2);
             break;
         case SOLVER_INFINITE_ROOTS:
             printf("Infinite number of roots\n");
