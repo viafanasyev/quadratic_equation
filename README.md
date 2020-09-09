@@ -22,6 +22,8 @@ This program is developed as a part of ISP RAS course.
 
 ### Run
 
+#### Solver
+
 To run main program execute next commands in terminal:
 ```
 cmake .
@@ -29,11 +31,29 @@ make
 ./solver
 ```
 
+#### Tests
+
 To run tests execute next commands in terminal:
 ```
 cmake .
 make
 ./tests
+```
+
+To run tests from file execute next commands in terminal:
+```
+cmake .
+make
+./tests file_with_tests.txt
+```
+
+File with tests should have next format: `a b c roots_number [root_1] [root_2]`  
+Example:
+```
+1 0 -4 2 -2 2
+0 1 2 1 -2
+0 1 0 1 0
+0 0 1 0
 ```
 
 ### Documentation

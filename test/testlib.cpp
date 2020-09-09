@@ -4,7 +4,7 @@
  */
 #include "testlib.h"
 
-Test::Test(TestPtr function_ptr, const char* fileName, unsigned int line) {
+Test::Test(const TestPtr& function_ptr, const char* fileName, unsigned int line) {
     assert(function_ptr != nullptr);
     assert(fileName != nullptr);
     assert(line != 0);
@@ -61,6 +61,10 @@ Test* TestRunner::addTest(TestPtr testPtr, const char* fileName, unsigned int li
     return test;
 }
 
+void TestRunner::clear() {
+    allTests.clear();
+}
+
 /**
  * Runs all tests that exist in this runner. Use in the main() method to run every written test.
  * @return true, if all tests succeeded, false otherwise.
@@ -99,11 +103,13 @@ bool TestRunner::runTest(Test* test) {
     assert(test != nullptr);
 
     isRunning = true;
+    _currentTest = test;
 
     test->run();
 
     if (isRunning) {
         isRunning = false;
+        _currentTest = nullptr;
 
         std::cerr << TESTLIB_ANSI_COLOR_GREEN;
         std::cerr << "[TEST PASSED] " << test->fileName() << ':' << test->line() << '\n';
@@ -120,6 +126,11 @@ bool TestRunner::runTest(Test* test) {
  */
 void TestRunner::failCurrentTest() {
     isRunning = false;
+    _currentTest = nullptr;
+}
+
+Test* TestRunner::currentTest() {
+    return _currentTest;
 }
 
 /**

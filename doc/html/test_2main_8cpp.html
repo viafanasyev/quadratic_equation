@@ -72,13 +72,71 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="testlib_8h_source.html">testlib.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="solver_8h_source.html">../src/solver.h</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb418a81a1cd8d448411b649a906729"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_2main_8cpp.html#a1bb418a81a1cd8d448411b649a906729">getDouble</a> (std::istringstream &amp;iss)</td></tr>
+<tr class="separator:a1bb418a81a1cd8d448411b649a906729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8cbf98e68b32bf1fb55aa7670ea82e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_2main_8cpp.html#ab8cbf98e68b32bf1fb55aa7670ea82e6">setUpTestsFromFile</a> (const char *fileName)</td></tr>
+<tr class="separator:ab8cbf98e68b32bf1fb55aa7670ea82e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top"><a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1bb418a81a1cd8d448411b649a906729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb418a81a1cd8d448411b649a906729">&#9670;&nbsp;</a></span>getDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getDouble </td>
+          <td>(</td>
+          <td class="paramtype">std::istringstream &amp;&#160;</td>
+          <td class="paramname"><em>iss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the next value from stringstream and converts it to double. If the value can't be converted to double, fails an assertion. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iss</td><td>stringstream to read value from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>converted double </dd></dl>
+
+</div>
+</div>
+<a id="ab8cbf98e68b32bf1fb55aa7670ea82e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8cbf98e68b32bf1fb55aa7670ea82e6">&#9670;&nbsp;</a></span>setUpTestsFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setUpTestsFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates <a class="el" href="class_test.html">Test</a> objects from the given file. </p><dl class="section note"><dt>Note</dt><dd>Tests should be written line-by-line in the next format: "a_coefficient b_coefficient c_coefficient roots_number [root_1] [root_2]". </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>name of the file with tests </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -17,11 +17,12 @@
 #include <cassert>
 #include <vector>
 #include <cmath>
+#include <functional>
 
 /**
  * Pointer to a function created by TEST(group, name) macro.
  */
-using TestPtr = void (*)();
+using TestPtr = std::function<void()>;
 
 /**
  * Represents a runnable test with all the info about it (file and line where it was described).
@@ -39,7 +40,7 @@ private:
     TestPtr _function_ptr;
 
 public:
-    Test(TestPtr function_ptr, const char* fileName, unsigned int line);
+    Test(const TestPtr& function_ptr, const char* fileName, unsigned int line);
 
     /**
      * Runs this test.
@@ -76,6 +77,8 @@ private:
     /** Shows if any of the tests is being executed at the current time. **/
     bool isRunning;
 
+    Test* _currentTest = nullptr;
+
     /** Container for all tests. **/
     std::vector<Test*> allTests;
 
@@ -101,6 +104,8 @@ public:
      */
     Test* addTest(TestPtr testPtr, const char* fileName, unsigned int line);
 
+    void clear();
+
     /**
      * Runs all tests that exist in this runner. Use in the main() method to run every written test.
      * @return true, if all tests succeeded, false otherwise.
@@ -111,6 +116,8 @@ public:
      * Fails current test. Use in assertions to show that the current test is failed.
      */
     void failCurrentTest();
+
+    Test* currentTest();
 
     /**
      * Returns a singleton instance of the runner.
@@ -159,11 +166,13 @@ public:
  *                           Can be use to print some additional info to std::cerr.
  */
 #define TESTLIB_ASSERT_FAILED(onFailure) do {                                                                          \
+    TestRunner* runner = TestRunner::getInstance();                                                                    \
+    Test* currentTest = runner->currentTest();                                                                         \
     std::cerr << TESTLIB_ANSI_COLOR_RED;                                                                               \
-    std::cerr << "[ASSERTION FAILED] " << __FILE__ << ':' << __LINE__ << '\n';                                         \
+    std::cerr << "[ASSERTION FAILED] " << currentTest->fileName() << ':' << currentTest->line() << '\n';               \
     onFailure;                                                                                                         \
     std::cerr << TESTLIB_ANSI_COLOR_RESET;                                                                             \
-    TestRunner::getInstance()->failCurrentTest();                                                                      \
+    runner->failCurrentTest();                                                                                         \
     return;                                                                                                            \
 } while (0)
 
