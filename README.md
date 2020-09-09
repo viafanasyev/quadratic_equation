@@ -38,7 +38,7 @@ make
 
 ### Documentation
 
-Doxygen is used to create documentation. You can watch it by opening `doc/index.html` in browser.  
+Doxygen is used to create documentation. You can watch it by opening `doc/html/index.html` in browser.  
 
 ### OS
 
