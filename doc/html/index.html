@@ -71,18 +71,20 @@ Project description</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Structure</h2>
 <ul>
-<li>src<ul>
+<li>src/ : Main project<ul>
 <li>main.cpp : Entry point for the program. Reads from user and solves quadratic equation.</li>
 <li><a class="el" href="solver_8h.html" title="Header file with expression solver description.">solver.h</a>, <a class="el" href="solver_8cpp.html" title="Source file with equation solver implementation.">solver.cpp</a> : Description and implementation of quadratic and linear equation solver functions.</li>
 </ul>
 </li>
-<li>test<ul>
+<li>test/ : Tests and testing library<ul>
 <li><a class="el" href="testlib_8h.html" title="Header file with testlib description.">testlib.h</a>, <a class="el" href="testlib_8cpp.html" title="Source file with testlib implementation.">testlib.cpp</a> : Library for testing with assertions and helper macros.</li>
 <li>solve_linear_test.cpp : Linear equations solver tests.</li>
 <li>solver_quadratic_tests.cpp : Quadratic equation solver tests.</li>
 <li>main.cpp : Entry point for tests. Just runs all tests.</li>
 </ul>
 </li>
+<li>doc/ : doxygen documentation</li>
+<li>doxyfile.txt : doxygen config file</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Run</h2>
@@ -93,6 +95,10 @@ Run</h2>
 <div class="line">make</div>
 <div class="line">./tests</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Documentation</h2>
+<p>Doxygen is used to create documentation. You can watch it by opening <code>doc/index.html</code> in browser. <br  />
+</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
 OS</h2>
 <p>Program is developed under Ubuntu 20.04.1 LTS. </p>
 </div></div><!-- PageDoc -->
