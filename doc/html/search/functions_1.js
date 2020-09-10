@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['failcurrenttest_45',['failCurrentTest',['../class_test_runner.html#ac7b64e84fbc3be012003ef5458f8a2bb',1,'TestRunner']]],
-  ['filename_46',['fileName',['../class_test.html#af55b687c1498a727553a74bb6ac39df1',1,'Test']]]
+  ['clear_47',['clear',['../class_test_runner.html#a5b25a431df000aaa1f78678133818cae',1,'TestRunner']]],
+  ['currenttest_48',['currentTest',['../class_test_runner.html#a432fb9ddfe75dc8de5b7f0d7719686e2',1,'TestRunner']]]
 ];

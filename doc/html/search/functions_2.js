@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getdouble_47',['getDouble',['../src_2main_8cpp.html#acd0fed8ff4cb843d6c4d9b8c1ff6246c',1,'getDouble(const char *prompt):&#160;main.cpp'],['../test_2main_8cpp.html#a1bb418a81a1cd8d448411b649a906729',1,'getDouble(std::istringstream &amp;iss):&#160;main.cpp']]],
-  ['getinstance_48',['getInstance',['../class_test_runner.html#ab92ba345c5bc9c3e5284aca8f6961cd9',1,'TestRunner']]]
+  ['failcurrenttest_49',['failCurrentTest',['../class_test_runner.html#ac7b64e84fbc3be012003ef5458f8a2bb',1,'TestRunner']]],
+  ['filename_50',['fileName',['../class_test.html#af55b687c1498a727553a74bb6ac39df1',1,'Test']]]
 ];

@@ -39,7 +39,7 @@ unsigned int Test::line() const {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-TestRunner::TestRunner() : isRunning(false) { }
+TestRunner::TestRunner() = default;
 
 TestRunner::~TestRunner() {
     for (Test* test : allTests) {
@@ -61,6 +61,9 @@ Test* TestRunner::addTest(TestPtr testPtr, const char* fileName, unsigned int li
     return test;
 }
 
+/**
+ * Removes all tests from the container.
+ */
 void TestRunner::clear() {
     allTests.clear();
 }
@@ -102,13 +105,11 @@ bool TestRunner::runAllTests() {
 bool TestRunner::runTest(Test* test) {
     assert(test != nullptr);
 
-    isRunning = true;
     _currentTest = test;
 
     test->run();
 
-    if (isRunning) {
-        isRunning = false;
+    if (_currentTest != nullptr) {
         _currentTest = nullptr;
 
         std::cerr << TESTLIB_ANSI_COLOR_GREEN;
@@ -125,11 +126,14 @@ bool TestRunner::runTest(Test* test) {
  * Fails current test. Use in assertions to show that the current test is failed.
  */
 void TestRunner::failCurrentTest() {
-    isRunning = false;
     _currentTest = nullptr;
 }
 
-Test* TestRunner::currentTest() {
+/**
+ * Pointer to a current test executed by this runner.
+ * @return pointer to a current running test
+ */
+const Test* TestRunner::currentTest() const {
     return _currentTest;
 }
 

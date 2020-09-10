@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['test_24',['Test',['../class_test.html',1,'Test'],['../testlib_8h.html#a63862f8a42d6bee21007a3764e6c003c',1,'TEST():&#160;testlib.h']]],
-  ['test_5finfo_25',['TEST_INFO',['../testlib_8h.html#a6f9bfa46a963a63e89c25b399dc6a3b7',1,'testlib.h']]],
-  ['test_5fname_26',['TEST_NAME',['../testlib_8h.html#a3e8ea953365265f6627605afbde9ba70',1,'testlib.h']]],
-  ['testlib_2ecpp_27',['testlib.cpp',['../testlib_8cpp.html',1,'']]],
-  ['testlib_2eh_28',['testlib.h',['../testlib_8h.html',1,'']]],
-  ['testlib_5fassert_5fequals_5ffailure_5fmessage_29',['TESTLIB_ASSERT_EQUALS_FAILURE_MESSAGE',['../testlib_8h.html#abf1c68451f41d73653199ef83b4b1074',1,'testlib.h']]],
-  ['testlib_5fassert_5ffailed_30',['TESTLIB_ASSERT_FAILED',['../testlib_8h.html#a17f8ea0df49d4709f5de8bb764d2d2bf',1,'testlib.h']]],
-  ['testlib_5feps_31',['TESTLIB_EPS',['../testlib_8h.html#a06c1d086c6645f3a4c71bdff6db3ff66',1,'testlib.h']]],
-  ['testptr_32',['TestPtr',['../testlib_8h.html#a26f42fe409ceef9342106ce8d61d2ab1',1,'testlib.h']]],
-  ['testrunner_33',['TestRunner',['../class_test_runner.html',1,'']]],
-  ['todouble_34',['toDouble',['../src_2main_8cpp.html#af32702fdd2e3ad3f3cc3f296ec1aaf34',1,'main.cpp']]]
+  ['setuptestsfromfile_17',['setUpTestsFromFile',['../test_2main_8cpp.html#ab8cbf98e68b32bf1fb55aa7670ea82e6',1,'main.cpp']]],
+  ['solve_5flinear_5ftests_2ecpp_18',['solve_linear_tests.cpp',['../solve__linear__tests_8cpp.html',1,'']]],
+  ['solve_5fquadratic_5ftests_2ecpp_19',['solve_quadratic_tests.cpp',['../solve__quadratic__tests_8cpp.html',1,'']]],
+  ['solvelinear_20',['solveLinear',['../solver_8cpp.html#a8d22334ce4b91b5436ca9635c1ef8ee6',1,'solveLinear(double a, double b, double &amp;x):&#160;solver.cpp'],['../solver_8h.html#a8d22334ce4b91b5436ca9635c1ef8ee6',1,'solveLinear(double a, double b, double &amp;x):&#160;solver.cpp']]],
+  ['solvequadratic_21',['solveQuadratic',['../solver_8cpp.html#a41e185e66f44bdb392ed9144a98778e9',1,'solveQuadratic(double a, double b, double c, double &amp;x1, double &amp;x2):&#160;solver.cpp'],['../solver_8h.html#a41e185e66f44bdb392ed9144a98778e9',1,'solveQuadratic(double a, double b, double c, double &amp;x1, double &amp;x2):&#160;solver.cpp']]],
+  ['solver_2ecpp_22',['solver.cpp',['../solver_8cpp.html',1,'']]],
+  ['solver_2eh_23',['solver.h',['../solver_8h.html',1,'']]],
+  ['solver_5feps_24',['SOLVER_EPS',['../solver_8h.html#a9f60c518679d7e265e664e7f691a0387',1,'solver.h']]],
+  ['solver_5finfinite_5froots_25',['SOLVER_INFINITE_ROOTS',['../solver_8h.html#af37c4d3a505e4267cea72e6b75d12ee0',1,'solver.h']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['setuptestsfromfile_53',['setUpTestsFromFile',['../test_2main_8cpp.html#ab8cbf98e68b32bf1fb55aa7670ea82e6',1,'main.cpp']]],
-  ['solvelinear_54',['solveLinear',['../solver_8cpp.html#a8d22334ce4b91b5436ca9635c1ef8ee6',1,'solveLinear(double a, double b, double &amp;x):&#160;solver.cpp'],['../solver_8h.html#a8d22334ce4b91b5436ca9635c1ef8ee6',1,'solveLinear(double a, double b, double &amp;x):&#160;solver.cpp']]],
-  ['solvequadratic_55',['solveQuadratic',['../solver_8cpp.html#a41e185e66f44bdb392ed9144a98778e9',1,'solveQuadratic(double a, double b, double c, double &amp;x1, double &amp;x2):&#160;solver.cpp'],['../solver_8h.html#a41e185e66f44bdb392ed9144a98778e9',1,'solveQuadratic(double a, double b, double c, double &amp;x1, double &amp;x2):&#160;solver.cpp']]]
+  ['readline_54',['readLine',['../src_2main_8cpp.html#a2a47612c636a1ab35f10e87a490d92f6',1,'main.cpp']]],
+  ['run_55',['run',['../class_test.html#a65ec5becbadad3887dadc7db7ed54b29',1,'Test']]],
+  ['runalltests_56',['runAllTests',['../class_test_runner.html#ac932511328802eb63e9b37ca02a62b9a',1,'TestRunner']]]
 ];

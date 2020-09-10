@@ -74,9 +74,7 @@ public:
 class TestRunner {
 private:
 
-    /** Shows if any of the tests is being executed at the current time. **/
-    bool isRunning;
-
+    /** Pointer to a current running test **/
     Test* _currentTest = nullptr;
 
     /** Container for all tests. **/
@@ -104,6 +102,9 @@ public:
      */
     Test* addTest(TestPtr testPtr, const char* fileName, unsigned int line);
 
+    /**
+     * Removes all tests from the container.
+     */
     void clear();
 
     /**
@@ -117,7 +118,11 @@ public:
      */
     void failCurrentTest();
 
-    Test* currentTest();
+    /**
+     * Pointer to a current test executed by this runner.
+     * @return pointer to a current running test
+     */
+    const Test* currentTest() const;
 
     /**
      * Returns a singleton instance of the runner.
@@ -167,7 +172,7 @@ public:
  */
 #define TESTLIB_ASSERT_FAILED(onFailure) do {                                                                          \
     TestRunner* runner = TestRunner::getInstance();                                                                    \
-    Test* currentTest = runner->currentTest();                                                                         \
+    const Test* currentTest = runner->currentTest();                                                                   \
     std::cerr << TESTLIB_ANSI_COLOR_RED;                                                                               \
     std::cerr << "[ASSERTION FAILED] " << currentTest->fileName() << ':' << currentTest->line() << '\n';               \
     onFailure;                                                                                                         \
