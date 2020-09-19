@@ -22,7 +22,7 @@ inline static bool isZero(double x) {
  * @param x value to round
  * @return 0, if the value is negative zero, or the actual value.
  */
-double roundNegativeZero(double x) {
+inline static double roundNegativeZero(double x) {
     assert(std::isfinite(x));
 
     return isZero(x) ? 0 : x;
