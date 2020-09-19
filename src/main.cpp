@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cassert>
+#include <cmath>
 #include "solver.h"
 
 /**
@@ -44,7 +45,7 @@ bool toDouble(const char* string, double& value) {
 double getDouble(const char* prompt) {
     assert(prompt != nullptr);
 
-    double input = 0;
+    double input = NAN;
     printf("%s", prompt);
     while (!toDouble(readLine(), input)) {
         printf("Invalid input! Try again\n");
@@ -62,7 +63,7 @@ int main() {
     const double b = getDouble("Enter second coefficient (b): ");
     const double c = getDouble("Enter third coefficient (c): " );
 
-    double x1 = 0, x2 = 0;
+    double x1 = NAN, x2 = NAN;
     const int rootsNumber = solveQuadratic(a, b, c, x1, x2);
 
     switch (rootsNumber) {
@@ -77,6 +78,9 @@ int main() {
             break;
         case SOLVER_INFINITE_ROOTS:
             printf("Infinite number of roots\n");
+            break;
+        case SOLVER_NOT_SOLVED:
+            printf("Sorry, the equation can't be solved :C \n");
             break;
         default:
             fprintf(stderr, "ERROR OCCURRED!\n\trootsNumber = %d\n", rootsNumber);

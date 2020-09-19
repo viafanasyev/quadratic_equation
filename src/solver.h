@@ -10,6 +10,9 @@
 /** Constant to describe if there are infinite solutions in equation. **/
 #define SOLVER_INFINITE_ROOTS INT32_MAX
 
+/** Constant to describe if the equation can't be solved for technical or mathematical reasons **/
+#define SOLVER_NOT_SOLVED (-1)
+
 /** Precision for checking equality with zero. **/
 #define SOLVER_EPS 1e-9
 
@@ -32,7 +35,9 @@ int solveLinear(double a, double b, double& x);
  * @param[in]  c  third coefficient
  * @param[out] x1 first root of this equation
  * @param[out] x2 second root of this equation
- * @return number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution.
+ * @return number of roots,
+ *         or SOLVER_INFINITE_ROOTS, if any number can be a solution,
+ *         or SOLVER_NOT_SOLVED, if the equation can't be solved for technical/mathematical reasons.
  */
 int solveQuadratic(double a, double b, double c, double& x1, double& x2);
 

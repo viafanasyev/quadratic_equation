@@ -12,7 +12,20 @@
  * @return true, if number is almost a zero, false otherwise.
  */
 inline static bool isZero(double x) {
+    assert(std::isfinite(x));
+
     return fabs(x) < SOLVER_EPS;
+}
+
+/**
+ * Gets rid of negative zero.
+ * @param x value to round
+ * @return 0, if the value is negative zero, or the actual value.
+ */
+double roundNegativeZero(double x) {
+    assert(std::isfinite(x));
+
+    return isZero(x) ? 0 : x;
 }
 
 /**
@@ -20,17 +33,20 @@ inline static bool isZero(double x) {
  * @param[in]  a first coefficient
  * @param[in]  b second coefficient
  * @param[out] x root of this equation
- * @return number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution.
+ * @return number of roots,
+ *         or SOLVER_INFINITE_ROOTS, if any number can be a solution,
+ *         or SOLVER_NOT_SOLVED, if the equation can't be solved for technical/mathematical reasons.
  */
 int solveLinear(double a, double b, double& x) {
-    assert(std::isfinite(a));
-    assert(std::isfinite(b));
+    if (!std::isfinite(a) || !std::isfinite(b)) {
+        return SOLVER_NOT_SOLVED;
+    }
 
     if (isZero(a)) {
         return isZero(b) ? SOLVER_INFINITE_ROOTS : 0;
     }
 
-    x = -b / a;
+    x = roundNegativeZero(-b / a);
     return 1;
 }
 
@@ -44,12 +60,14 @@ int solveLinear(double a, double b, double& x) {
  * @param[in]  c  third coefficient
  * @param[out] x1 first root of this equation
  * @param[out] x2 second root of this equation
- * @return number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution.
+ * @return number of roots,
+ *         or SOLVER_INFINITE_ROOTS, if any number can be a solution,
+ *         or SOLVER_NOT_SOLVED, if the equation can't be solved for technical/mathematical reasons.
  */
 int solveQuadratic(double a, double b, double c, double& x1, double& x2) {
-    assert(std::isfinite(a));
-    assert(std::isfinite(b));
-    assert(std::isfinite(c));
+    if (!std::isfinite(a) || !std::isfinite(b) || !std::isfinite(c)) {
+        return SOLVER_NOT_SOLVED;
+    }
 
     assert(&x1 != &x2);
 
@@ -57,16 +75,19 @@ int solveQuadratic(double a, double b, double c, double& x1, double& x2) {
         return solveLinear(b, c, x1);
     }
 
-    const double d = b * b - 4 * a * c;
+    double d = b * b - 4 * a * c;
+    if (!std::isfinite(d)) {
+        return SOLVER_NOT_SOLVED;
+    }
 
     if (isZero(d)) {
-        x1 = x2 = -b / (2 * a);
+        x1 = x2 = roundNegativeZero(-b / (2 * a));
         return 1;
     }
 
     if (d > 0) {
-        x1 = (-b - sqrt(d)) / (2 * a);
-        x2 = (-b + sqrt(d)) / (2 * a);
+        x1 = roundNegativeZero((-b - sqrt(d)) / (2 * a));
+        x2 = roundNegativeZero((-b + sqrt(d)) / (2 * a));
         if (a < 0) std::swap(x1, x2); // to sort x1 and x2 by ascending order
         return 2;
     }

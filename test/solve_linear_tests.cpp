@@ -6,7 +6,7 @@
 
 TEST(solveLinear, oneRoot) {
     const double a = 2, b = 3;
-    double x = 0;
+    double x = NAN;
 
     const int rootsNumber = solveLinear(a, b, x);
     ASSERT_EQUALS(rootsNumber, 1);
@@ -15,7 +15,7 @@ TEST(solveLinear, oneRoot) {
 
 TEST(solveLinear, oneRoot_withZeroSecondCoefficient) {
     const double a = 2, b = 0;
-    double x = 0;
+    double x = NAN;
 
     const int rootsNumber = solveLinear(a, b, x);
     ASSERT_EQUALS(rootsNumber, 1);
@@ -24,7 +24,7 @@ TEST(solveLinear, oneRoot_withZeroSecondCoefficient) {
 
 TEST(solveLinear, noRoots) {
     const double a = 0, b = 3;
-    double x = 0;
+    double x = NAN;
 
     const int rootsNumber = solveLinear(a, b, x);
     ASSERT_EQUALS(rootsNumber, 0);
@@ -32,7 +32,7 @@ TEST(solveLinear, noRoots) {
 
 TEST(solveLinear, infiniteRoots) {
     double a = 0, b = 0;
-    double x = 0;
+    double x = NAN;
 
     const int rootsNumber = solveLinear(a, b, x);
     ASSERT_EQUALS(rootsNumber, SOLVER_INFINITE_ROOTS);

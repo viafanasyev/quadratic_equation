@@ -83,6 +83,8 @@ $(function() {
 Macros</h2></td></tr>
 <tr class="memitem:af37c4d3a505e4267cea72e6b75d12ee0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8h.html#af37c4d3a505e4267cea72e6b75d12ee0">SOLVER_INFINITE_ROOTS</a>&#160;&#160;&#160;INT32_MAX</td></tr>
 <tr class="separator:af37c4d3a505e4267cea72e6b75d12ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f4059fed3fcc416e4bf5dad7823747"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8h.html#a91f4059fed3fcc416e4bf5dad7823747">SOLVER_NOT_SOLVED</a>&#160;&#160;&#160;(-1)</td></tr>
+<tr class="separator:a91f4059fed3fcc416e4bf5dad7823747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f60c518679d7e265e664e7f691a0387"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8h.html#a9f60c518679d7e265e664e7f691a0387">SOLVER_EPS</a>&#160;&#160;&#160;1e-9</td></tr>
 <tr class="separator:a9f60c518679d7e265e664e7f691a0387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -126,6 +128,21 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a91f4059fed3fcc416e4bf5dad7823747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f4059fed3fcc416e4bf5dad7823747">&#9670;&nbsp;</a></span>SOLVER_NOT_SOLVED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SOLVER_NOT_SOLVED&#160;&#160;&#160;(-1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constant to describe if the equation can't be solved for technical or mathematical reasons </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a8d22334ce4b91b5436ca9635c1ef8ee6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d22334ce4b91b5436ca9635c1ef8ee6">&#9670;&nbsp;</a></span>solveLinear()</h2>
@@ -166,7 +183,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution.</dd></dl>
+<p>Solves the linear equation ax + b == 0. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>first coefficient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>second coefficient </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>root of this equation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution, or SOLVER_NOT_SOLVED, if the equation can't be solved for technical/mathematical reasons. </dd></dl>
 
 </div>
 </div>
@@ -225,7 +251,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>number of roots, or SOLVER_INFINITE_ROOTS, if any number can be a solution, or SOLVER_NOT_SOLVED, if the equation can't be solved for technical/mathematical reasons. </dd></dl>
 
 </div>
 </div>

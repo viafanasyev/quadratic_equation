@@ -13,7 +13,20 @@
  * @return converted double
  */
 double getDouble(std::istringstream& iss) {
-    double value;
+    double value = NAN;
+    iss >> value;
+    assert(!iss.fail());
+    return value;
+}
+
+/**
+ * Gets the next value from stringstream and converts it to int.
+ * If the value can't be converted to int, fails an assertion.
+ * @param[in, out] iss stringstream to read value from
+ * @return converted int
+ */
+int getInt(std::istringstream& iss) {
+    int value = 0;
     iss >> value;
     assert(!iss.fail());
     return value;
@@ -32,9 +45,9 @@ void setUpTestsFromFile(const char* fileName) {
     runner->clear();
 
     int testsNumber = 0;
-    double a = 0, b = 0, c = 0;
-    double actualRootsNumber = 0;
-    double actualX1 = 0, actualX2 = 0;
+    double a = NAN, b = NAN, c = NAN;
+    int actualRootsNumber = 0;
+    double actualX1 = NAN, actualX2 = NAN;
     std::string line;
     while (getline(file, line)) {
         std::istringstream iss(line);
@@ -43,7 +56,7 @@ void setUpTestsFromFile(const char* fileName) {
         b = getDouble(iss);
         c = getDouble(iss);
 
-        actualRootsNumber = getDouble(iss);
+        actualRootsNumber = getInt(iss);
         if (actualRootsNumber == 2) {
             actualX1 = getDouble(iss);
             actualX2 = getDouble(iss);
