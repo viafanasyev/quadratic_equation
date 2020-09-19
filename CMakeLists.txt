@@ -3,6 +3,8 @@ project(quadratic_equation)
 
 set(CMAKE_CXX_STANDARD 20)
 
+add_compile_options(-Wall -Wextra -pedantic -Werror -Wfloat-equal)
+
 add_executable(
         solver
         src/main.cpp
