@@ -140,3 +140,12 @@ TEST(solveQuadratic, linear_infiniteRoots) {
     const int rootsNumber = solveQuadratic(a, b, c, x1, x2);
     ASSERT_EQUALS(rootsNumber, SOLVER_INFINITE_ROOTS);
 }
+
+TEST(solveQuadratic, normalizationExpected) {
+    const double a = SOLVER_EPS * 0.1, b = SOLVER_EPS * 0.2, c = SOLVER_EPS * 0.1;
+    double x1 = NAN, x2 = NAN;
+
+    const int rootsNumber = solveQuadratic(a, b, c, x1, x2);
+    ASSERT_EQUALS(rootsNumber, 1);
+    ASSERT_DOUBLE_EQUALS(x1, -1);
+}

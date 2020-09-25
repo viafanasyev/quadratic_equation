@@ -42,6 +42,11 @@ int solveLinear(double a, double b, double& x) {
         return SOLVER_NOT_SOLVED;
     }
 
+    if (std::isfinite(b / a)) {
+        b /= a;
+        a = 1;
+    }
+
     if (isZero(a)) {
         return isZero(b) ? SOLVER_INFINITE_ROOTS : 0;
     }
@@ -70,6 +75,12 @@ int solveQuadratic(double a, double b, double c, double& x1, double& x2) {
     }
 
     assert(&x1 != &x2);
+
+    if (std::isfinite(b / a) && std::isfinite(c / a)) {
+        b /= a;
+        c /= a;
+        a = 1;
+    }
 
     if (isZero(a)) {
         return solveLinear(b, c, x1);

@@ -37,3 +37,12 @@ TEST(solveLinear, infiniteRoots) {
     const int rootsNumber = solveLinear(a, b, x);
     ASSERT_EQUALS(rootsNumber, SOLVER_INFINITE_ROOTS);
 }
+
+TEST(solveLinear, normalizationExpected) {
+    const double a = 0.1 * SOLVER_EPS, b = 0.1 * SOLVER_EPS;
+    double x = NAN;
+
+    const int rootsNumber = solveLinear(a, b, x);
+    ASSERT_EQUALS(rootsNumber, 1);
+    ASSERT_DOUBLE_EQUALS(x, -b / a);
+}
